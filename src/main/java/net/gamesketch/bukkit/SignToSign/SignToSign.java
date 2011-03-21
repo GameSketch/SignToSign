@@ -1,5 +1,5 @@
 
-package main.java.net.gamesketch.bukkit.SignToSign;
+package net.gamesketch.bukkit.SignToSign;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
