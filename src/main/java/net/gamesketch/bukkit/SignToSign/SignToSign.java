@@ -3,7 +3,11 @@ package net.gamesketch.bukkit.SignToSign;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.event.Event;
+import org.bukkit.event.Event.Priority;
+import org.bukkit.event.player.PlayerListener;
 import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -13,15 +17,16 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author Cogito
  */
 public class SignToSign extends JavaPlugin {
-    //private final PlayerListener playerListener = new LoginListener();
+    private final PlayerListener playerListener = new playerListener();
 
     public void onDisable() {
         //PluginManager pm = getServer().getPluginManager();
     }
 
     public void onEnable() {
-        //PluginManager pm = getServer().getPluginManager();
+        PluginManager pm = getServer().getPluginManager();
         PluginDescriptionFile pdfFile = this.getDescription();
+        pm.registerEvent(Event.Type.PLAYER_INTERACT,playerListener,Priority.Normal,this);
 
         // Print a startup message to the console, so we know it was started.
         System.out.println( pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!" );
