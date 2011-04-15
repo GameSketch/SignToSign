@@ -18,8 +18,8 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author Cogito
  */
 public class SignToSign extends JavaPlugin {
-    private final PlayerListener playerListener = new playerListener();
-    private final BlockListener blockListener = new blockListener();
+    private final PlayerListener playerListener = new SignPlayerListener();
+    private final BlockListener blockListener = new SignBlockListener();
 
     public void onDisable() {
         //PluginManager pm = getServer().getPluginManager();
@@ -28,8 +28,8 @@ public class SignToSign extends JavaPlugin {
     public void onEnable() {
         PluginManager pm = getServer().getPluginManager();
         PluginDescriptionFile pdfFile = this.getDescription();
-        pm.registerEvent(Event.Type.PLAYER_INTERACT,playerListener,Priority.Normal,this);
-        pm.registerEvent(Event.Type.BLOCK_PLACE, blockListener, Priority.Highest,this);
+        pm.registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Priority.Normal, this);
+        pm.registerEvent(Event.Type.BLOCK_PLACE, blockListener, Priority.Highest, this);
         
         // Print a startup message to the console, so we know it was started.
         System.out.println( pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!" );

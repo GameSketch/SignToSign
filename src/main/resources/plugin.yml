@@ -1,8 +1,8 @@
 name: SignToSign
 main: net.gamesketch.bukkit.signToSign.SignToSign
 version: 0.0.1
-website: http://www.gamesketch.net
-author: The GameSketch Community
+website: http://plugins.gamesketch.net
+authors: [Cogito, Streammz]
 description: >
              Fine grained teleportation links between signs.
 commands:
